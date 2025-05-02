@@ -97,6 +97,12 @@ class HardwareInterface : public hardware_interface::RobotHW
   hardware_interface::PositionJointInterface position_joint_interface_;
   hardware_interface::VelocityJointInterface velocity_joint_interface_;
   hardware_interface::EffortJointInterface effort_joint_interface_;
+
+   // Two dummy joints
+   double dummy_cmd_l[2];
+   double dummy_pos_l[2];
+   double dummy_vel_l[2];
+   double dummy_eff_l[2];
 };
 
 } // namespace open_manipulator_hw

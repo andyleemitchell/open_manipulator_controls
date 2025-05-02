@@ -328,6 +328,29 @@ void HardwareInterface::registerControlInterfaces()
     effort_joint_interface_.registerHandle(effort_joint_handle);
   }
 
+  ////////////////////////////////////////////////
+
+  // Two dummy joints///////////////////////////////////////
+  hardware_interface::JointStateHandle dummy_state_handle3("virtual_roll_joint", &dummy_pos_l[0], &dummy_vel_l[0], &dummy_eff_l[0]);
+  joint_state_interface_.registerHandle(dummy_state_handle3);
+
+  hardware_interface::JointStateHandle dummy_state_handle4("virtual_yaw_joint", &dummy_pos_l[1], &dummy_vel_l[1], &dummy_eff_l[1]);
+  joint_state_interface_.registerHandle(dummy_state_handle4);
+
+  hardware_interface::JointHandle dummy_pos_handle3(joint_state_interface_.getHandle("virtual_roll_joint"), &dummy_cmd_l[0]);
+  position_joint_interface_.registerHandle(dummy_pos_handle3);
+
+  hardware_interface::JointHandle dummy_pos_handle4(joint_state_interface_.getHandle("virtual_yaw_joint"), &dummy_cmd_l[1]);
+  position_joint_interface_.registerHandle(dummy_pos_handle4);
+
+  // effort controller?
+  hardware_interface::JointHandle dummy_eff_handle3(joint_state_interface_.getHandle("virtual_roll_joint"), &dummy_cmd_l[0]);
+  effort_joint_interface_.registerHandle(dummy_eff_handle3);
+
+  hardware_interface::JointHandle dummy_eff_handle4(joint_state_interface_.getHandle("virtual_yaw_joint"), &dummy_cmd_l[1]);
+  effort_joint_interface_.registerHandle(dummy_eff_handle4);
+  // ----------------------------------------------------------
+
   registerInterface(&joint_state_interface_);
   registerInterface(&position_joint_interface_);
   registerInterface(&velocity_joint_interface_);

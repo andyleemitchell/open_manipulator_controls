@@ -23,4 +23,8 @@
   <rosparam file="$(find open_manipulator_controllers)/config/gravity_compensation_controller.yaml" command="load"/>
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
     output="screen" args="gravity_compensation_controller"/>
+
+  <!-- startup move_group related
+  <include file="$(find open_manipulator_moveit_config)/launch/move_group.launch"/>
+  <include file="$(find open_manipulator_moveit_config)/launch/moveit_rviz.launch"/> -->
 </launch>

@@ -5,6 +5,8 @@ controller_list:
       - joint2
       - joint3
       - joint4
+      - virtual_roll_joint
+      - virtual_yaw_joint
   - name: fake_gripper_controller
     joints:
       - gripper

@@ -5,6 +5,8 @@ arm_controller:
     - joint2
     - joint3
     - joint4
+    - virtual_roll_joint
+    - virtual_yaw_joint
   constraints:
       goal_time: 0.6
       stopped_velocity_tolerance: 0.05
