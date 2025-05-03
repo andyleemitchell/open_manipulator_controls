@@ -60,7 +60,10 @@ class HardwareInterface : public hardware_interface::RobotHW
 {
  public:
   HardwareInterface(ros::NodeHandle nh, ros::NodeHandle private_nh);
-  ~HardwareInterface() {}
+  ~HardwareInterface() {
+    for (auto const& dxl:dynamixel_)
+      dxl_wb_->torqueOff((uint8_t)dxl.second);
+  }
 
   void read();
   void write();
